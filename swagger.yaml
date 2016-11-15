@@ -1,0 +1,65 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "0.0.0"
+  title: Bestand Service
+
+# Describe your paths here
+paths:
+  # This is a path endpoint. Change it.
+  /bestand:
+    # This is a HTTP operation
+    get:
+      description:
+        Listet alle bekannten Stationen auf
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            title: Array aller Stationen
+            type: array
+            items:
+              title: Station
+              type: object
+              properties:
+                key:
+                  type: string
+                name:
+                  type: string
+                lat:
+                  type: string
+                lon:
+                  type: string
+                  
+  /bestand/{station}:
+    get:
+      description:
+        Listet aller raeder einer station
+      parameters:
+        - name: station
+          in: path
+          description: eine spezifische station
+          required: true
+          type: string
+      responses:
+        200:
+          description: infos zu einer station
+          schema:
+            title: name der station
+            type: array
+            items:
+              properties:
+                key: 
+                  type: string
+
+
+  
+      
+  
