@@ -12,21 +12,42 @@ namespace BestandService.Controllers
     {
 
         // safes all station for now
-        // todo: replace with proper DB connection
+        // TODO: replace with proper DB connection
         private readonly IStationRepository _stationRepository;
 
 
+        /// <summary>
+        /// Constructor for starting the api
+        /// </summary>
+        /// <param name="stationRepository">List with stations</param>
         public BestandController(IStationRepository stationRepository)
         {
             this._stationRepository = stationRepository;
         }
 
 
-        // return information about the requested station
-        // returns 404 if that station doesnt exist
-        [HttpGet("{stationID}", Name = "GetStation")]
+        /// <summary>
+        /// Get a list of all known stations including
+        /// the position, name and stock of the stations
+        /// </summary>
+        /// <returns>List of all bike stations</returns>
+        [HttpGet]
+        public IEnumerable<Station> GetAll()
+        {
+            return _stationRepository.GetAll();
+        }
+
+
+        /// <summary>
+        /// Get information to a specific station
+        /// </summary>
+        /// <param name="stationName">Name of the
+        ///     requested station</param>
+        /// <returns></returns>
+        [HttpGet("{stationName}", Name = "GetStation")]
         public IActionResult GetStation(string stationName)
         {
+            Console.WriteLine("station name: " + stationName);
             var searchedStation = _stationRepository.Find(stationName);
 
             if (searchedStation == null)
@@ -37,7 +58,11 @@ namespace BestandService.Controllers
         }
 
 
-        // push new found station to the db or dictionary for now
+        /// <summary>
+        /// Add a new station
+        /// </summary>
+        /// <param name="station"></param>
+        /// <returns>key to find the station later</returns>
         [HttpPost]
         public IActionResult AddStation([FromBody] Station station)
         {
@@ -52,12 +77,6 @@ namespace BestandService.Controllers
             // Result of this: the ID of the station is returned so that on can
             // retrieve further Information about the station
             return CreatedAtRoute("GetStation", new {stationID = station.Key}, station);
-        }
-
-        [HttpGet]
-        public IEnumerable<Station> GetAll()
-        {
-            return _stationRepository.GetAll();
         }
     }
 }

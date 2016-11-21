@@ -1,6 +1,8 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System;
+using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BestandService.Models
@@ -32,7 +34,9 @@ namespace BestandService.Models
 
         public Station Find(string _name)
         {
-            throw new System.NotImplementedException();
+            Station station;
+            stations.TryGetValue(_name, out station);
+            return station;
         }
 
         public IEnumerable<Station> GetAll()
