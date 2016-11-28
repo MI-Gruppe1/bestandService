@@ -1,0 +1,1027 @@
+[
+  {
+    "name": "2397 Alsterdorfer Straße/Fuhlsbüttler Straße",
+    "latitude": 53.62,
+    "longitude": 10.032
+  },
+  {
+    "name": "2711 Mannesallee/Veringstraße",
+    "latitude": 53.514265,
+    "longitude": 9.987298
+  },
+  {
+    "name": "2214 Universität / Schlüterstraße",
+    "latitude": 53.566972,
+    "longitude": 9.986076
+  },
+  {
+    "name": "2215 Allende-Platz/Grindelhof",
+    "latitude": 53.567845,
+    "longitude": 9.982728
+  },
+  {
+    "name": "2212 Universität / Moorweidenstraße",
+    "latitude": 53.563755,
+    "longitude": 9.987659
+  },
+  {
+    "name": "2231 Hallerstraße / Rohtenbaumchaussee",
+    "latitude": 53.572081,
+    "longitude": 9.988801
+  },
+  {
+    "name": "2528 Bahnhof Dammtor Süd / Marseiller Straße",
+    "latitude": 53.5602,
+    "longitude": 9.98963
+  },
+  {
+    "name": "2216 Bogenstraße / Grindelallee",
+    "latitude": 53.5712,
+    "longitude": 9.977694
+  },
+  {
+    "name": "2512 St.Petersburger Straße/Bei den Kirchhöfen",
+    "latitude": 53.559762,
+    "longitude": 9.981839
+  },
+  {
+    "name": "2213 Harvestehuder Weg / Alte Rabenstraße",
+    "latitude": 53.5672,
+    "longitude": 10.0011
+  },
+  {
+    "name": "2232 Grindelberg / Bezirksamt Eimsbüttel",
+    "latitude": 53.575408,
+    "longitude": 9.977824
+  },
+  {
+    "name": "2221 U-Bahn Schlump",
+    "latitude": 53.567991,
+    "longitude": 9.969601
+  },
+  {
+    "name": "2234 Mittelweg/Sophienterrasse-NDR",
+    "latitude": 53.576378,
+    "longitude": 9.993122
+  },
+  {
+    "name": "2524 Gänsemarkt / Büschstraße",
+    "latitude": 53.556282,
+    "longitude": 9.990091
+  },
+  {
+    "name": "2511 Messehallen / Marktstraße",
+    "latitude": 53.558518,
+    "longitude": 9.975346
+  },
+  {
+    "name": "2133 Sternschanze / Eingang Dänenweg",
+    "latitude": 53.564227,
+    "longitude": 9.96925
+  },
+  {
+    "name": "2233 Innocentiapark/Oberstraße",
+    "latitude": 53.577248,
+    "longitude": 9.98211
+  },
+  {
+    "name": "2525 Caffamacherreihe/Valentinskamp.",
+    "latitude": 53.555722,
+    "longitude": 9.984209
+  },
+  {
+    "name": "2526 Sievekingplatz/Gorch-Fock-Wall",
+    "latitude": 53.556061,
+    "longitude": 9.979697
+  },
+  {
+    "name": "2523 Jungfernstieg / Neuer Jungfernstieg",
+    "latitude": 53.555,
+    "longitude": 9.9914
+  },
+  {
+    "name": "2241 Isestraße / Hoheluftbrücke",
+    "latitude": 53.578,
+    "longitude": 9.97721
+  },
+  {
+    "name": "2513 Feldstraße / Marktstraße",
+    "latitude": 53.557414,
+    "longitude": 9.969178
+  },
+  {
+    "name": "2222 Christuskirche/Fruchtallee",
+    "latitude": 53.5695,
+    "longitude": 9.96309
+  },
+  {
+    "name": "2522 Axel-Springer-Platz/Wexstraße",
+    "latitude": 53.551853,
+    "longitude": 9.985161
+  },
+  {
+    "name": "2533 Jungfernstieg / Ballindamm",
+    "latitude": 53.552244,
+    "longitude": 9.995501
+  },
+  {
+    "name": "2624 Enckeplatz / Hütten",
+    "latitude": 53.5524,
+    "longitude": 9.97695
+  },
+  {
+    "name": "2316 Leinpfad/Fernsicht",
+    "latitude": 53.580391,
+    "longitude": 9.999404
+  },
+  {
+    "name": "2131 Neuer Pferdemarkt / Beim Grünen Jäger",
+    "latitude": 53.558869,
+    "longitude": 9.963824
+  },
+  {
+    "name": "2132 Schulterblatt/Eifflerstraße",
+    "latitude": 53.562709,
+    "longitude": 9.96099
+  },
+  {
+    "name": "2223 Osterstraße/Bismarckstraße",
+    "latitude": 53.573183,
+    "longitude": 9.962395
+  },
+  {
+    "name": "2623 Großneumarkt/Thielbek",
+    "latitude": 53.550977,
+    "longitude": 9.980459
+  },
+  {
+    "name": "2534 Kleine Rosenstraße / Gerhart-Hauptmann-Platz",
+    "latitude": 53.5516,
+    "longitude": 9.99843
+  },
+  {
+    "name": "2531 Alter Wall/Adolphsbrücke",
+    "latitude": 53.550193,
+    "longitude": 9.99011
+  },
+  {
+    "name": "2235 Eppendorfer Baum / Isestraße",
+    "latitude": 53.5832,
+    "longitude": 9.98441
+  },
+  {
+    "name": "2536 Hauptbahnhof West / Glockengießer Wall",
+    "latitude": 53.553676,
+    "longitude": 10.004553
+  },
+  {
+    "name": "2521 Stadthausbrücke / Neuer Wall",
+    "latitude": 53.549672,
+    "longitude": 9.986594
+  },
+  {
+    "name": "2636 Mönckebergstraße / Rosenstraße",
+    "latitude": 53.550722,
+    "longitude": 9.99714
+  },
+  {
+    "name": "2542 Lange Reihe / Kirchenallee",
+    "latitude": 53.5552,
+    "longitude": 10.0082
+  },
+  {
+    "name": "2541 Hauptbahnhof Ost / Hachmannplatz",
+    "latitude": 53.554307,
+    "longitude": 10.007652
+  },
+  {
+    "name": "2321 Eduard-Rhein-Ufer / Schwanenwik",
+    "latitude": 53.5677,
+    "longitude": 10.0162
+  },
+  {
+    "name": "2243 Eppendorfer Weg/Hoheluftchaussee",
+    "latitude": 53.581771,
+    "longitude": 9.97172
+  },
+  {
+    "name": "2242 Goebenstraße/Eppendorfer Weg",
+    "latitude": 53.577579,
+    "longitude": 9.963063
+  },
+  {
+    "name": "2544 Lange Reihe / Lohmühlenpark",
+    "latitude": 53.5599,
+    "longitude": 10.0149
+  },
+  {
+    "name": "2632 Rödingsmarkt / Großer Burstah",
+    "latitude": 53.5483,
+    "longitude": 9.98695
+  },
+  {
+    "name": "2612 Millerntorplatz/St.Pauli",
+    "latitude": 53.551,
+    "longitude": 9.97033
+  },
+  {
+    "name": "2637 Jacobikirche / Steinstraße",
+    "latitude": 53.5503,
+    "longitude": 10.0015
+  },
+  {
+    "name": "2639 Mönckebergstraße / Steintorwall",
+    "latitude": 53.5516,
+    "longitude": 10.0054
+  },
+  {
+    "name": "2635 Schopenstehl/Alter Fischmarkt",
+    "latitude": 53.548703,
+    "longitude": 9.997126
+  },
+  {
+    "name": "2613 Paulinenplatz/Wohlwillstraße",
+    "latitude": 53.5542,
+    "longitude": 9.96246
+  },
+  {
+    "name": "2622 Michaeliskirche / Krayenkamp",
+    "latitude": 53.547975,
+    "longitude": 9.97942
+  },
+  {
+    "name": "2633 Domstraße/Willy-Brandt-Straße",
+    "latitude": 53.547486,
+    "longitude": 9.994057
+  },
+  {
+    "name": "2324 Hofweg/Am Langenzug",
+    "latitude": 53.578035,
+    "longitude": 10.013995
+  },
+  {
+    "name": "2135 Eimsbütteler Straße/Waterloostraße",
+    "latitude": 53.5662,
+    "longitude": 9.9534
+  },
+  {
+    "name": "2644 Steindamm / Stralsunder Straße",
+    "latitude": 53.554216,
+    "longitude": 10.013306
+  },
+  {
+    "name": "2634 Meßberg / Willy-Brandt-Straße",
+    "latitude": 53.547805,
+    "longitude": 9.998774
+  },
+  {
+    "name": "2224 Emilienstraße/Fruchtallee",
+    "latitude": 53.57169,
+    "longitude": 9.953138
+  },
+  {
+    "name": "2641 Zentralbibliothek / Münzstraße",
+    "latitude": 53.550332,
+    "longitude": 10.008849
+  },
+  {
+    "name": "2638 Steinstraße / Deichtorplatz",
+    "latitude": 53.548562,
+    "longitude": 10.005325
+  },
+  {
+    "name": "2311 Alsterschwimmhalle/Ifflandstraße",
+    "latitude": 53.560781,
+    "longitude": 10.022148
+  },
+  {
+    "name": "2326 Winterhuder Weg/ Zimmerstraße",
+    "latitude": 53.575308,
+    "longitude": 10.02045
+  },
+  {
+    "name": "2646 Lohmühlenstraße / Steindamm",
+    "latitude": 53.5572,
+    "longitude": 10.0199
+  },
+  {
+    "name": "2363 Goldbekplatz / Semperstraße",
+    "latitude": 53.5838,
+    "longitude": 10.01
+  },
+  {
+    "name": "2371 Kellinghusenstraße / Loogeplatz",
+    "latitude": 53.588516,
+    "longitude": 9.991125
+  },
+  {
+    "name": "2136 Sophienallee / Sandweg",
+    "latitude": 53.569769,
+    "longitude": 9.94977
+  },
+  {
+    "name": "2631 U-Bahn Baumwall",
+    "latitude": 53.544279,
+    "longitude": 9.980896
+  },
+  {
+    "name": "2621 Landungsbrücke/Hafentor",
+    "latitude": 53.5457,
+    "longitude": 9.9723
+  },
+  {
+    "name": "2643 Kurt-Schumacher-Allee / Nagelsweg",
+    "latitude": 53.5517,
+    "longitude": 10.016
+  },
+  {
+    "name": "2672 Auf dem Sande/Kehrwieder-MiniaturWunderland",
+    "latitude": 53.543731,
+    "longitude": 9.98971
+  },
+  {
+    "name": "2225 Heußweg/Wiesenstraße",
+    "latitude": 53.577796,
+    "longitude": 9.953073
+  },
+  {
+    "name": "2611 Bernhard-Nocht-Straße/Zirkusweg",
+    "latitude": 53.54732,
+    "longitude": 9.965669
+  },
+  {
+    "name": "2134 Alsenstraße/Düppelstraße",
+    "latitude": 53.563037,
+    "longitude": 9.948345
+  },
+  {
+    "name": "2373 Martinistraße / Haupteingang Klinikum",
+    "latitude": 53.588918,
+    "longitude": 9.975715
+  },
+  {
+    "name": "2372 Kümmellstraße / Robert-Koch-Straße",
+    "latitude": 53.590237,
+    "longitude": 9.98673
+  },
+  {
+    "name": "2315 Uhlandstraße / Eingang Nord",
+    "latitude": 53.565,
+    "longitude": 10.0267
+  },
+  {
+    "name": "2227 Troplowitzstraße / Beiersdorf  / NXP",
+    "latitude": 53.582793,
+    "longitude": 9.957594
+  },
+  {
+    "name": "2323 Mundsburg / Schürbeker Straße",
+    "latitude": 53.5696,
+    "longitude": 10.0271
+  },
+  {
+    "name": "2642 Amsinckstraße/ Nordkanalbrücke",
+    "latitude": 53.547868,
+    "longitude": 10.012361
+  },
+  {
+    "name": "2673 Am Kaiserkai/Großer Grasbrook",
+    "latitude": 53.541838,
+    "longitude": 9.992856
+  },
+  {
+    "name": "2111 Reeperbahn / Königstraße",
+    "latitude": 53.549501,
+    "longitude": 9.954934
+  },
+  {
+    "name": "2312 Lübecker Straße / Marienkrankenhaus",
+    "latitude": 53.5597,
+    "longitude": 10.0285
+  },
+  {
+    "name": "2645 Berliner Tor / Berlinertordamm",
+    "latitude": 53.5533,
+    "longitude": 10.0246
+  },
+  {
+    "name": "2674 Osakaallee/Übersee Quartier",
+    "latitude": 53.541583,
+    "longitude": 9.999731
+  },
+  {
+    "name": "2322 Lerchenfeld / Uferstraße",
+    "latitude": 53.567,
+    "longitude": 10.0318
+  },
+  {
+    "name": "2220 Lappenbergsallee / Bei der Apostelkirche",
+    "latitude": 53.575573,
+    "longitude": 9.944487
+  },
+  {
+    "name": "2364 Jarrestraße / Rambatzweg",
+    "latitude": 53.584,
+    "longitude": 10.0211
+  },
+  {
+    "name": "2333 Bartholomäusstraße/Beim Alten Schützenhof",
+    "latitude": 53.575652,
+    "longitude": 10.02957
+  },
+  {
+    "name": "2675 Grasbrookpark/Überseequartier",
+    "latitude": 53.540282,
+    "longitude": 9.997945
+  },
+  {
+    "name": "2671 Unilever/Strandkai",
+    "latitude": 53.53958,
+    "longitude": 9.99365
+  },
+  {
+    "name": "2226 Methfesselstraße/Luruper Weg",
+    "latitude": 53.58006,
+    "longitude": 9.946786
+  },
+  {
+    "name": "2369 Hudtwalckerstraße / Bebelallee",
+    "latitude": 53.5943,
+    "longitude": 9.99575
+  },
+  {
+    "name": "2314 Wartenau / Lübecker Straße",
+    "latitude": 53.5636,
+    "longitude": 10.0341
+  },
+  {
+    "name": "2116 Chemnitzstraße / Max-Brauer-Allee",
+    "latitude": 53.5553,
+    "longitude": 9.94286
+  },
+  {
+    "name": "2374 Süderfeldstraße/Universitätsklinikum Eppendorf",
+    "latitude": 53.594,
+    "longitude": 9.973
+  },
+  {
+    "name": "2115 Große Bergstraße / Jessenstraße",
+    "latitude": 53.5512,
+    "longitude": 9.94576
+  },
+  {
+    "name": "2112 Fischmarkt/Breite Straße",
+    "latitude": 53.5462,
+    "longitude": 9.95088
+  },
+  {
+    "name": "2551 Eiffestrasse/Normannenweg",
+    "latitude": 53.552123,
+    "longitude": 10.030364
+  },
+  {
+    "name": "2651 Hammerbrook / Sachsenfeld",
+    "latitude": 53.546011,
+    "longitude": 10.024042
+  },
+  {
+    "name": "2313 Landwehr / Ramazan-Avci-Platz",
+    "latitude": 53.561109,
+    "longitude": 10.037022
+  },
+  {
+    "name": "2367 Borgweg/Stadtpark",
+    "latitude": 53.592022,
+    "longitude": 10.015021
+  },
+  {
+    "name": "2332 Holsteinischer Kamp/ Wagnerstraße",
+    "latitude": 53.574518,
+    "longitude": 10.036608
+  },
+  {
+    "name": "2334 Weidestraße/Biedermannplatz",
+    "latitude": 53.579764,
+    "longitude": 10.034041
+  },
+  {
+    "name": "2331 Uferstraße/Wagnerstraße",
+    "latitude": 53.571078,
+    "longitude": 10.039741
+  },
+  {
+    "name": "2113 Königstraße / Struenseestraße",
+    "latitude": 53.5471,
+    "longitude": 9.94241
+  },
+  {
+    "name": "2383 Bebelallee/Meenkwiese",
+    "latitude": 53.599203,
+    "longitude": 9.994017
+  },
+  {
+    "name": "2336 Schleidenstraße/Osterbekstraße",
+    "latitude": 53.584582,
+    "longitude": 10.03369
+  },
+  {
+    "name": "2381 Planetarium/Hindenburgstraße",
+    "latitude": 53.59595,
+    "longitude": 10.01365
+  },
+  {
+    "name": "2250 Emil-Andresen-Straße / Lohkoppelweg",
+    "latitude": 53.59285,
+    "longitude": 9.952055
+  },
+  {
+    "name": "2121 Bahnhof Altona Ost/Max-Brauer-Allee",
+    "latitude": 53.552121,
+    "longitude": 9.936005
+  },
+  {
+    "name": "2561 Burgstraße/Hammer Landstraße",
+    "latitude": 53.555693,
+    "longitude": 10.041298
+  },
+  {
+    "name": "2411 Wandsbeker Chaussee/Ritterstraße",
+    "latitude": 53.567126,
+    "longitude": 10.044484
+  },
+  {
+    "name": "2122 Bahnhof Altona West / Busbahnhof",
+    "latitude": 53.5518,
+    "longitude": 9.93387
+  },
+  {
+    "name": "2365 Saarlandstraße/Wiesendamm",
+    "latitude": 53.588408,
+    "longitude": 10.0329
+  },
+  {
+    "name": "2335 Dehnhaide/Barmbeker Markt",
+    "latitude": 53.579981,
+    "longitude": 10.041461
+  },
+  {
+    "name": "2366 Südring/Stadthallenbrücke",
+    "latitude": 53.591446,
+    "longitude": 10.030327
+  },
+  {
+    "name": "2126 Bahrenfelder Straße/Völckersstraße",
+    "latitude": 53.556897,
+    "longitude": 9.927945
+  },
+  {
+    "name": "2114 Ottenser Marktplatz/Museumsstraße",
+    "latitude": 53.5478,
+    "longitude": 9.93456
+  },
+  {
+    "name": "2127 Große Rainstraße/Ottenser Hauptstraße",
+    "latitude": 53.552339,
+    "longitude": 9.930344
+  },
+  {
+    "name": "2680 Bullerdeich/Stadtreinigung Hamburg",
+    "latitude": 53.544979,
+    "longitude": 10.03685
+  },
+  {
+    "name": "2251 Koppelstraße/Lokstedter Grenzstraße",
+    "latitude": 53.593587,
+    "longitude": 9.943525
+  },
+  {
+    "name": "2337 Lortzingstraße/Friedrichsberger Straße",
+    "latitude": 53.573588,
+    "longitude": 10.049568
+  },
+  {
+    "name": "2351 Wiesendamm/Roggenkamp",
+    "latitude": 53.586958,
+    "longitude": 10.042993
+  },
+  {
+    "name": "2414 Sievekingsallee/Sievekingdamm",
+    "latitude": 53.560835,
+    "longitude": 10.052589
+  },
+  {
+    "name": "2124 Eulenstraße/Große Brunnenstraße",
+    "latitude": 53.550816,
+    "longitude": 9.925653
+  },
+  {
+    "name": "2412 Hasselbrookstraße/Papenstraße",
+    "latitude": 53.564805,
+    "longitude": 10.054679
+  },
+  {
+    "name": "2125 Fischersallee/Bleickenallee",
+    "latitude": 53.550966,
+    "longitude": 9.92226
+  },
+  {
+    "name": "2382 Überseering/Mexikoring",
+    "latitude": 53.601619,
+    "longitude": 10.024745
+  },
+  {
+    "name": "2562 Bei der Hammer Kirche/Hammerpark",
+    "latitude": 53.556699,
+    "longitude": 10.055075
+  },
+  {
+    "name": "2129 Hohenzollernring/Friedensallee",
+    "latitude": 53.55671,
+    "longitude": 9.918508
+  },
+  {
+    "name": "2352 Fuhlsbüttler Straße/Hellbrookstraße",
+    "latitude": 53.59146,
+    "longitude": 10.044508
+  },
+  {
+    "name": "2681 Billstraße/Billhorner Deich",
+    "latitude": 53.540103,
+    "longitude": 10.04287
+  },
+  {
+    "name": "2413 Wandsbeker Chaussee/ Börnestraße",
+    "latitude": 53.57047,
+    "longitude": 10.059528
+  },
+  {
+    "name": "2341 Krausestraße/Eilbektal",
+    "latitude": 53.576238,
+    "longitude": 10.058237
+  },
+  {
+    "name": "2682 Rothenburgsort/Marktplatz/Lindleystraße",
+    "latitude": 53.534288,
+    "longitude": 10.038938
+  },
+  {
+    "name": "2686 Osterbrookplatz/ Süderstraße",
+    "latitude": 53.546932,
+    "longitude": 10.057613
+  },
+  {
+    "name": "2090 Friedensallee/Hegarstraße ( S Bahn Bahrenfeld )",
+    "latitude": 53.56026,
+    "longitude": 9.908946
+  },
+  {
+    "name": "2691 Wilhelmsburger Platz/Zur Schleuse",
+    "latitude": 53.522794,
+    "longitude": 10.01481
+  },
+  {
+    "name": "2391 Fuhlsbüttler Straße/Hartzloh",
+    "latitude": 53.601,
+    "longitude": 10.041
+  },
+  {
+    "name": "2151 Neumühlen/Övelgönne",
+    "latitude": 53.544302,
+    "longitude": 9.914731
+  },
+  {
+    "name": "2431 Schloßstrasse/Schloßgarten",
+    "latitude": 53.571664,
+    "longitude": 10.068644
+  },
+  {
+    "name": "2563 Horner Weg/Morahtstieg",
+    "latitude": 53.555503,
+    "longitude": 10.066926
+  },
+  {
+    "name": "2432 Wandsbeker Marktstraße/Wandsbeker Marktplatz",
+    "latitude": 53.572433,
+    "longitude": 10.068955
+  },
+  {
+    "name": "2435 Friedrich-Ebert-Damm / Lomerstraße",
+    "latitude": 53.584919,
+    "longitude": 10.079638
+  },
+  {
+    "name": "2085 Dürerstraße/Beslerplatz- S Bahn Othmarschen",
+    "latitude": 53.560395,
+    "longitude": 9.887159
+  },
+  {
+    "name": "2566 Horner Rennbahn/ Meurer Weg",
+    "latitude": 53.554193,
+    "longitude": 10.085077
+  },
+  {
+    "name": "2433 OTTO Group / Wandsbeker Straße",
+    "latitude": 53.60026,
+    "longitude": 10.070397
+  },
+  {
+    "name": "2712 Barkassenanleger/Mengestraße",
+    "latitude": 53.499748,
+    "longitude": 9.99647
+  },
+  {
+    "name": "2438 Herthastraße / Einkaufszentrum Bramfeld",
+    "latitude": 53.611878,
+    "longitude": 10.075913
+  },
+  {
+    "name": "2714 Berta-Kröger-Platz/Wilhelm-Strauß-Weg",
+    "latitude": 53.497933,
+    "longitude": 10.007016
+  },
+  {
+    "name": "2713 Neunenfelder Straße/ Kurt-Emmerich-Platz",
+    "latitude": 53.497232,
+    "longitude": 10.003843
+  },
+  {
+    "name": "2801 Kanalplatz/Harburger Schlossstraße",
+    "latitude": 53.4665,
+    "longitude": 9.984148
+  },
+  {
+    "name": "2814 Alter Postweg / Heimfelder Straße",
+    "latitude": 53.465276,
+    "longitude": 9.963537
+  },
+  {
+    "name": "2802 Schellerdamm/Hausnummer22",
+    "latitude": 53.464282,
+    "longitude": 9.986136
+  },
+  {
+    "name": "2812 Harburger Ring/Neue Straße",
+    "latitude": 53.4606874,
+    "longitude": 9.9775729
+  },
+  {
+    "name": "2811 Herbert-Wehner-Platz/Großer Schippsee",
+    "latitude": 53.460407,
+    "longitude": 9.983319
+  },
+  {
+    "name": "2820 TU Harburg/Denickestraße",
+    "latitude": 53.460622,
+    "longitude": 9.969487
+  },
+  {
+    "name": "2813 Harburger Rathausstraße/Deichhausweg",
+    "latitude": 53.4599586,
+    "longitude": 9.9804731
+  },
+  {
+    "name": "2810 Moorstraße/Bahnhof Harburg",
+    "latitude": 53.457286,
+    "longitude": 9.987994
+  },
+  {
+    "name": "2821 Eißendorfer Pferdeweg/ Asklepios-Klinik Harburg",
+    "latitude": 53.459,
+    "longitude": 9.951
+  },
+  {
+    "name": "2830 Maretstraße/Baererstraße",
+    "latitude": 53.453704,
+    "longitude": 9.982275
+  },
+  {
+    "name": "2840 Reeseberg/EBV-Anzengruberstraße",
+    "latitude": 53.44896,
+    "longitude": 9.990306
+  },
+  {
+    "name": "2841 Gotthelfweg/Außenmühlenteich",
+    "latitude": 53.447625,
+    "longitude": 9.980675
+  },
+  {
+    "name": "2075 Paul-Ehrlich-Straße/Asklepios Klinik Altona",
+    "latitude": 53.554433,
+    "longitude": 9.900752
+  },
+  {
+    "name": "2950 Hugo-Kirchberg-Straße/Tesa",
+    "latitude": 53.65429,
+    "longitude": 9.98528
+  },
+  {
+    "name": "2399 Langenhorn Markt/Tangstedter Landstraße",
+    "latitude": 53.6487572,
+    "longitude": 10.0163663
+  },
+  {
+    "name": "2362 Weidestraße /Johannes-Prassek-Park",
+    "latitude": 53.5808087,
+    "longitude": 10.0258479
+  },
+  {
+    "name": "2720 Georg-Wilhelm-Straße/Mankiewicz",
+    "latitude": 53.494,
+    "longitude": 9.99
+  },
+  {
+    "name": "2035 Nordalbinger Weg/Paul-Sorge-Straße",
+    "latitude": 53.6408352,
+    "longitude": 9.9500955
+  },
+  {
+    "name": "2218 Randstraße/ Stellingen",
+    "latitude": 53.590248,
+    "longitude": 9.919356
+  },
+  {
+    "name": "2031 Osdorfer Landstraße/ Elbe-Einkaufszentrum",
+    "latitude": 53.571629,
+    "longitude": 9.862423
+  },
+  {
+    "name": "2261 Siemersplatz/Kollaustraße",
+    "latitude": 53.600072,
+    "longitude": 9.963929
+  },
+  {
+    "name": "2377 Hindenburgstraße/Möringbogen",
+    "latitude": 53.606177,
+    "longitude": 10.012225
+  },
+  {
+    "name": "2040 Ohnhorststraße/Klein Flottbek",
+    "latitude": 53.558587,
+    "longitude": 9.86216
+  },
+  {
+    "name": "2436 Friedrich-Ebert-Damm/Helbingtwiete",
+    "latitude": 53.588172,
+    "longitude": 10.095665
+  },
+  {
+    "name": "2437 Charlie-Mills-Straße/Friedrich-Ebert-Damm",
+    "latitude": 53.59145,
+    "longitude": 10.106858
+  },
+  {
+    "name": "2441 Rahlstedter Weg/Berner Heerweg",
+    "latitude": 53.606246,
+    "longitude": 10.12021
+  },
+  {
+    "name": "2451 Gründgensstraße/César-Klein-Ring",
+    "latitude": 53.610149,
+    "longitude": 10.058096
+  },
+  {
+    "name": "2921 S Allermöhe/Walter-Rudolphi-Weg",
+    "latitude": 53.490126,
+    "longitude": 10.158515
+  },
+  {
+    "name": "2396 Röntgenstraße/Philips",
+    "latitude": 53.6234809,
+    "longitude": 10.0122088
+  },
+  {
+    "name": "2585 Billstedter Platz/Öjendorfer Weg",
+    "latitude": 53.540096,
+    "longitude": 10.106106
+  },
+  {
+    "name": "2912 Bahnhof Bergedorf/Johann-Meyer-Straße",
+    "latitude": 53.490496,
+    "longitude": 10.206105
+  },
+  {
+    "name": "2913 Lohbrügger Markt/Ludwig-Rosenberg-Ring",
+    "latitude": 53.494675,
+    "longitude": 10.206894
+  },
+  {
+    "name": "2117 Große Elbstraße/Van-der-Smissen-Straße",
+    "latitude": 53.543906,
+    "longitude": 9.94246
+  },
+  {
+    "name": "2440 Traberweg/Eckerkoppel",
+    "latitude": 53.598017,
+    "longitude": 10.101459
+  },
+  {
+    "name": "2244 Löwenstraße/Eppendorfer Weg",
+    "latitude": 53.583795,
+    "longitude": 9.977916
+  },
+  {
+    "name": "2128 Bleickenallee/Kinderkrankenhaus Altona",
+    "latitude": 53.5512881,
+    "longitude": 9.9129134
+  },
+  {
+    "name": "2228 Osterstraße/Heußweg",
+    "latitude": 53.5759831,
+    "longitude": 9.9520709
+  },
+  {
+    "name": "2353 Habichtstraße/Steilshooper Straße",
+    "latitude": 53.593726,
+    "longitude": 10.0506397
+  },
+  {
+    "name": "2677 Versmannstraße/Am Hannoverschen Bahnhof",
+    "latitude": 53.540782,
+    "longitude": 10.006168
+  },
+  {
+    "name": "2394 Alsterdorf Markt/Evangelische Stiftung",
+    "latitude": 53.6120909,
+    "longitude": 10.0239462
+  },
+  {
+    "name": "2030 Niendorf Markt/Tibarg",
+    "latitude": 53.6190722,
+    "longitude": 9.9513113
+  },
+  {
+    "name": "2219 Langenfelder Damm/Müggenkampstraße",
+    "latitude": 53.580757,
+    "longitude": 9.938418
+  },
+  {
+    "name": "2809 Neuländer Kamp/Eurofins",
+    "latitude": 53.4616513,
+    "longitude": 10.0041327
+  },
+  {
+    "name": "2229 Grandweg/Veilchenweg",
+    "latitude": 53.589185,
+    "longitude": 9.964681
+  },
+  {
+    "name": "2050 Elbchaussee/Teufelsbrück",
+    "latitude": 53.547425,
+    "longitude": 9.862013
+  },
+  {
+    "name": "2429 Nordschleswiger Straße/Dulsberg-Nord",
+    "latitude": 53.585813,
+    "longitude": 10.06523
+  },
+  {
+    "name": "2376 Djarkartaweg/Sengelmannstraße",
+    "latitude": 53.609163,
+    "longitude": 10.022685
+  },
+  {
+    "name": "2564 Caspar-Voght-Straße/Sievekingsallee",
+    "latitude": 53.559893,
+    "longitude": 10.061703
+  },
+  {
+    "name": "2570 Manshardtstraße/EKZ Manshardtstraße",
+    "latitude": 53.559215,
+    "longitude": 10.107447
+  },
+  {
+    "name": "2580 Riedweg/Vierbergen",
+    "latitude": 53.547643,
+    "longitude": 10.095515
+  },
+  {
+    "name": "2070 DESY/Notkestraße",
+    "latitude": 53.574537,
+    "longitude": 9.878527
+  },
+  {
+    "name": "2119 Thadenstraße/Holstenstraße",
+    "latitude": 53.555827,
+    "longitude": 9.950708
+  },
+  {
+    "name": "2910 Wentorfer Straße/Bezirksamt Bergedorf",
+    "latitude": 53.487427,
+    "longitude": 10.22
+  },
+  {
+    "name": "2911 Vierlandenstraße/Johann-Adolf-Hasse-Platz",
+    "latitude": 53.488449,
+    "longitude": 10.210913
+  },
+  {
+    "name": "2920 S Nettelnburg/Friedrich-Frank-Bogen",
+    "latitude": 53.488482,
+    "longitude": 10.182199
+  },
+  {
+    "name": "2080 Bahrenfelder Chaussee/Von-Sauer-Straße",
+    "latitude": 53.5659729,
+    "longitude": 9.9108696
+  }
+]

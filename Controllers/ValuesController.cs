@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BestandService.Controllers
 {
-    [Route("test/[controller]")]
+    [Route("[controller]")]
     public class ValuesController : Controller
     {
         // GET api/values2
@@ -25,8 +25,10 @@ namespace BestandService.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public string Post([FromBody]string value)
         {
+            Console.WriteLine("values ctrl post aufruf");
+            return "post executed";
         }
 
         // PUT api/values/5
