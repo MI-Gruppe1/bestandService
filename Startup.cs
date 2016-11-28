@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BestandService.Models;
 
 namespace BestandService
 {
@@ -30,9 +29,6 @@ namespace BestandService
         {
             // Add framework services.
             services.AddMvc();
-
-            // Stations Service
-            services.AddSingleton<IStationRepository, StationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

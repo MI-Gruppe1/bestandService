@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BestandService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,27 +12,51 @@ namespace BestandService.Controllers
     [Route("[controller]")]
     public class BestandController : Controller
     {
-        // safes all station for now
-        private readonly IStationRepository _stationRepository;
+        private const bool Development = true;
 
+        private JArray _knownStations = new JArray();
 
-        public BestandController(IStationRepository stationRepository)
+        //TODO durch port 4567 ersetzen
+        private const string AllStations = "http://localhost:5000/allStations";
+        private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
+
+        public BestandController()
         {
-            this._stationRepository = stationRepository;
+            if (Development)
+            {
+                var stationsFromFile = System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
+                _knownStations = JArray.Parse(stationsFromFile);
+            }
+            else
+            {
+                using (var client = new HttpClient())
+                {
+                    var response = client.GetAsync(AllStations).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // by calling .Result you are performing a synchronous call
+                        var responseContent = response.Content;
+
+                        // by calling .Result you are synchronously reading the result
+                        var responseString = responseContent.ReadAsStringAsync().Result;
+
+                        _knownStations = JArray.Parse(responseString);
+                    }
+                }
+            }
         }
 
 
         [HttpGet]
-        public void GetAll()
+        public string GetAll()
         {
-            bool development = true;
-
             JToken stadtRadInformation = new JArray();
             JToken radDBInformation = new JArray();
 
-            if (development)
+            if (Development)
             {
-                // if development read information from file
+                // if Development read information from file
                 var fileContent =
                     System.IO.File.ReadAllText("/Users/julius/Development/bestandService/stadtRadSample.json");
                 stadtRadInformation = JObject.Parse(fileContent);
@@ -50,23 +73,34 @@ namespace BestandService.Controllers
                     new KeyValuePair<string, string>("callee", "getMarker"),
                 });
 
-                const string stadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
                 using (var client = new HttpClient())
                 {
-                    var response = client.PostAsync(stadtRadUrl, formContent).Result;
+                    var response = client.PostAsync(StadtRadUrl, formContent).Result;
 
                     if (response.IsSuccessStatusCode)
                     {
                         var stringContent = response.Content.ReadAsStringAsync().Result;
                         stadtRadInformation = JObject.Parse(stringContent);
-
-                        //TODO ersetzen durch echten call
-                        var andi = System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
-                        radDBInformation = JArray.Parse(andi);
                     }
                     else
                     {
                         //return null;
+                    }
+                }
+
+                using (var client = new HttpClient())
+                {
+                    var response = client.GetAsync(AllStations).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // by calling .Result you are performing a synchronous call
+                        var responseContent = response.Content;
+
+                        // by calling .Result you are synchronously reading the result
+                        var responseString = responseContent.ReadAsStringAsync().Result;
+
+                        radDBInformation = JArray.Parse(responseString);
                     }
                 }
             }
@@ -97,17 +131,11 @@ namespace BestandService.Controllers
                     var fullName = (string) inf["name"];
                     if (fullName.StartsWith(name))
                     {
-                        //Console.WriteLine("found a match");
                         inf["bikes"] = bikeCount;
                     }
                 }
             }
-
-            if (development)
-            {
-                string json = JsonConvert.SerializeObject(radDBInformation.ToArray());
-                System.IO.File.WriteAllText("/Users/julius/Development/bestandService/output.json", json);
-            }
+            return JsonConvert.SerializeObject(radDBInformation);
         }
 
 
@@ -117,23 +145,6 @@ namespace BestandService.Controllers
             Console.WriteLine("station name: " + stationName);
 
             return stationName;
-        }
-
-
-        [HttpPost]
-        public IActionResult AddStation([FromBody] Station station)
-        {
-            if (station == null)
-            {
-                return BadRequest();
-            }
-            _stationRepository.Add(station);
-
-            // the quoted "GetStation" refers to the GET Method with exactly that name
-            // this return doesnt work if the name doesnt match that!!!
-            // Result of this: the ID of the station is returned so that on can
-            // retrieve further Information about the station
-            return CreatedAtRoute("GetStation", new {stationID = station.Key}, station);
         }
     }
 }
