@@ -17,7 +17,7 @@ namespace BestandService.Controllers
         private const string AllStations = "http://localhost:5000/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
 
-        // in development mode the service is beeing run with mock data
+        // in development mode the service is being run with mock data
         private const bool Development = false;
 
         // list of the known stations
@@ -40,7 +40,6 @@ namespace BestandService.Controllers
                     downloadResponse = DownloadAllStations();
                 }
                 _knownStations = JArray.Parse(downloadResponse);
-                Console.WriteLine("ready");
             }
         }
 
@@ -106,12 +105,60 @@ namespace BestandService.Controllers
         }
 
 
-        [HttpGet("{stationName}", Name = "GetStation")]
+        [HttpGet("{*stationName}", Name = "GetStation")]
         public string GetStation(string stationName)
         {
-            Console.WriteLine("station name: " + stationName);
+            JToken stadtRadInformation = new JArray();
+            JToken radDBInformation = new JArray();
 
-            return stationName;
+            if (Development)
+            {
+                // if Development read information from file
+                var responseFromFile = ReadStadtRadResponseFromFile();
+                stadtRadInformation = JObject.Parse(responseFromFile);
+            }
+            else
+            {
+                var downloadedStadtRadInfos = DownloadStadtRadInformation();
+                if (downloadedStadtRadInfos == null)
+                {
+                    throw new HttpRequestException("Stadtrad API not reachable");
+                }
+                stadtRadInformation = JObject.Parse(downloadedStadtRadInfos);
+            }
+
+
+            var markers = (JArray) stadtRadInformation["marker"];
+            JObject resp = new JObject();
+            foreach (var item in markers.Children())
+            {
+                // get properties
+                var itemProperties = item.Children<JProperty>();
+
+                var hal2OptionProp = itemProperties.FirstOrDefault(x => x.Name == "hal2option");
+                var hal2Option = hal2OptionProp.Value;
+
+                var tooltipValue = (string) hal2Option["tooltip"];
+                var name = tooltipValue.Substring(1, 4);
+
+                var requestedName = stationName.Substring(0, 4);
+
+                if (name == requestedName)
+                {
+                    var bikeCount = hal2Option["bikelist"].Count();
+
+
+                    resp["name"] = stationName;
+                    var latitudeProp = itemProperties.FirstOrDefault(x => x.Name == "lat");
+                    resp["latitude"] = latitudeProp.Value;
+                    var longitudeProp = itemProperties.FirstOrDefault(x => x.Name == "lng");
+                    resp["longitude"] = latitudeProp.Value;
+                    resp["bikes"] = bikeCount;
+
+                    return JsonConvert.SerializeObject(resp);
+                }
+            }
+            return null;
         }
 
         #region "private methods"

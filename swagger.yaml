@@ -17,6 +17,23 @@ paths:
             items: {
               "$ref": "#/definitions/Station"
             }
+  /bestand/{stationName}:
+    get:
+      description: Listet alle bekannten Stationen auf
+      parameters:
+        - name: stationName
+          in: path
+          description: 'get bike count for specific station'
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          schema: {
+              "$ref": "#/definitions/Station"
+            }
+
+
 definitions:
   Station:
     type: object
@@ -25,12 +42,7 @@ definitions:
         type: string
       latitude:
         type: number
-      logitude:
+      longitude:
         type: number
       bikes:
         type: integer
-
-
-  
-      
-  
