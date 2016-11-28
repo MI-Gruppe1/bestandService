@@ -15,7 +15,7 @@ namespace BestandService.Controllers
         [HttpGet]
         public string GetAll()
         {
-            var stations = System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
+            var stations = System.IO.File.ReadAllText("andi.json");
             return stations;
         }
     }

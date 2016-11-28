@@ -158,12 +158,12 @@ namespace BestandService.Controllers
 
         private static string ReadStationsFromFile()
         {
-            return System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
+            return System.IO.File.ReadAllText("andi.json");
         }
 
         private static string ReadStadtRadResponseFromFile()
         {
-            return System.IO.File.ReadAllText("/Users/julius/Development/bestandService/stadtRadSample.json");
+            return System.IO.File.ReadAllText("stadtRadSample.json");
         }
 
         #endregion
