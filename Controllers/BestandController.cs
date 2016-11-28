@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -12,38 +13,34 @@ namespace BestandService.Controllers
     [Route("[controller]")]
     public class BestandController : Controller
     {
-        private const bool Development = true;
-
-        private JArray _knownStations;
-
         //TODO durch port 4567 ersetzen
         private const string AllStations = "http://localhost:5000/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
+
+        // in development mode the service is beeing run with mock data
+        private const bool Development = false;
+
+        // list of the known stations
+        private JArray _knownStations;
 
         public BestandController()
         {
             if (Development)
             {
-                var stationsFromFile = System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
+                var stationsFromFile = ReadStationsFromFile();
                 _knownStations = JArray.Parse(stationsFromFile);
             }
             else
             {
-                using (var client = new HttpClient())
+                var downloadResponse = DownloadAllStations();
+                while (downloadResponse == null)
                 {
-                    var response = client.GetAsync(AllStations).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // by calling .Result you are performing a synchronous call
-                        var responseContent = response.Content;
-
-                        // by calling .Result you are synchronously reading the result
-                        var responseString = responseContent.ReadAsStringAsync().Result;
-
-                        _knownStations = JArray.Parse(responseString);
-                    }
+                    Console.WriteLine("sleeping");
+                    System.Threading.Thread.Sleep(10000);
+                    downloadResponse = DownloadAllStations();
                 }
+                _knownStations = JArray.Parse(downloadResponse);
+                Console.WriteLine("ready");
             }
         }
 
@@ -57,52 +54,28 @@ namespace BestandService.Controllers
             if (Development)
             {
                 // if Development read information from file
-                var fileContent =
-                    System.IO.File.ReadAllText("/Users/julius/Development/bestandService/stadtRadSample.json");
-                stadtRadInformation = JObject.Parse(fileContent);
+                var responseFromFile = ReadStadtRadResponseFromFile();
+                stadtRadInformation = JObject.Parse(responseFromFile);
 
-                var andi = System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
-                radDBInformation = JArray.Parse(andi);
+                var stationsFromFile = ReadStationsFromFile();
+                radDBInformation = JArray.Parse(stationsFromFile);
             }
             else
             {
-                var formContent = new FormUrlEncodedContent(new[]
+                var downloadedStadtRadInfos = DownloadStadtRadInformation();
+                if (downloadedStadtRadInfos == null)
                 {
-                    new KeyValuePair<string, string>("mapstadt_id", "75"),
-                    new KeyValuePair<string, string>("ajxmod", "hal2map"),
-                    new KeyValuePair<string, string>("callee", "getMarker"),
-                });
-
-                using (var client = new HttpClient())
-                {
-                    var response = client.PostAsync(StadtRadUrl, formContent).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var stringContent = response.Content.ReadAsStringAsync().Result;
-                        stadtRadInformation = JObject.Parse(stringContent);
-                    }
-                    else
-                    {
-                        //return null;
-                    }
+                    throw new HttpRequestException("Stadtrad API not reachable");
                 }
+                stadtRadInformation = JObject.Parse(downloadedStadtRadInfos);
 
-                using (var client = new HttpClient())
+
+                var downloadedStations = DownloadAllStations();
+                if (downloadedStations == null)
                 {
-                    var response = client.GetAsync(AllStations).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // by calling .Result you are performing a synchronous call
-                        var responseContent = response.Content;
-
-                        // by calling .Result you are synchronously reading the result
-                        var responseString = responseContent.ReadAsStringAsync().Result;
-
-                        radDBInformation = JArray.Parse(responseString);
-                    }
+                    downloadedStations = ReadStationsFromFile();
                 }
+                radDBInformation = JArray.Parse(downloadedStations);
             }
 
 
@@ -111,12 +84,6 @@ namespace BestandService.Controllers
             {
                 // get properties
                 var itemProperties = item.Children<JProperty>();
-
-                var latidudeProp = itemProperties.FirstOrDefault(x => x.Name == "lat");
-                var latitude = latidudeProp.Value;
-
-                var longitudeProp = itemProperties.FirstOrDefault(x => x.Name == "lng");
-                var longitude = longitudeProp.Value;
 
                 var hal2OptionProp = itemProperties.FirstOrDefault(x => x.Name == "hal2option");
                 var hal2Option = hal2OptionProp.Value;
@@ -146,5 +113,59 @@ namespace BestandService.Controllers
 
             return stationName;
         }
+
+        #region "private methods"
+
+        private static string DownloadStadtRadInformation()
+        {
+            // needed information for the stadtRad rest api
+            var formContent = new FormUrlEncodedContent(new[]
+            {
+                new KeyValuePair<string, string>("mapstadt_id", "75"),
+                new KeyValuePair<string, string>("ajxmod", "hal2map"),
+                new KeyValuePair<string, string>("callee", "getMarker"),
+            });
+
+            using (var client = new HttpClient())
+            {
+                var response = client.PostAsync(StadtRadUrl, formContent).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return response.Content.ReadAsStringAsync().Result;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        private static string DownloadAllStations()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync(AllStations).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = response.Content;
+                    return responseContent.ReadAsStringAsync().Result;
+                }
+            }
+            return null;
+        }
+
+        private static string ReadStationsFromFile()
+        {
+            return System.IO.File.ReadAllText("/Users/julius/Development/bestandService/andi.json");
+        }
+
+        private static string ReadStadtRadResponseFromFile()
+        {
+            return System.IO.File.ReadAllText("/Users/julius/Development/bestandService/stadtRadSample.json");
+        }
+
+        #endregion
     }
 }

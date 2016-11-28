@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 namespace BestandService.Controllers
 {
     [Route("/allStations")]
-    public class DummyDBService : Controller
+    public class DummyDbService : Controller
     {
         [HttpGet]
         public string GetAll()
