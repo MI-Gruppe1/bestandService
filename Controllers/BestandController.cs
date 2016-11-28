@@ -14,7 +14,7 @@ namespace BestandService.Controllers
     {
         private const bool Development = true;
 
-        private JArray _knownStations = new JArray();
+        private JArray _knownStations;
 
         //TODO durch port 4567 ersetzen
         private const string AllStations = "http://localhost:5000/allStations";
