@@ -14,7 +14,7 @@ namespace BestandService.Controllers
     public class BestandController : Controller
     {
         //TODO durch port 4567 ersetzen
-        private const string AllStations = "http://localhost:5000/allStations";
+        private const string AllStations = "http://localhost:4567/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
 
         // in development mode the service is being run with mock data
