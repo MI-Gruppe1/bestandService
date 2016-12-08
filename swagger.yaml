@@ -16,13 +16,13 @@ paths:
             title: Array aller Stationen
             type: array
             items: {
-              "$ref": "#/definitions/Station"
+              "$ref": "#/definitions/Bestand an Station"
             }
-  /bestand/{stationName}:
+  /bestand/{stationsName}:
     get:
       description: Gibt den Bestand für eine bestimmte Station zurück
       parameters:
-        - name: stationName
+        - name: stationsName
           in: path
           description: Name der angefragten Station
           type: string
@@ -31,39 +31,30 @@ paths:
         '200':
           description: Anfrage erfolgreich
           schema: {
-              "$ref": "#/definitions/Station"
+              "$ref": "#/definitions/Bestand an Station"
             }
   /bestandUndVorhersage:
     get:
-      description: Gibt Bestand und Prediction fuer die angegebenen Stationen an
+      description: Gibt Bestand und Vorhersage fuer die angegebenen Stationen an
       parameters:
-        - name: count
-          in: query
-          description: Anzahl der angefragten Stationen
-          type: integer
-          required: true
         - name: stations
           in: body
           description: Namen der angefragten Stationen
           schema:
             type: array
-            items:
-              required:
-                - stationName
-              properties:
-                stationName:
-                  type: string
-                latidude:
-                  type: number
-                longitude:
-                  type: number
+            items: {
+              "$ref": "#/definitions/Station"
+            }
       responses:
         200:
           description: Anfrage erfolgreich
-          schema: {
-            "$ref": "#/definitions/Station"
-          }
-        
+          schema:
+            title: Array Stationen mit Vorhersagen
+            type: array
+            items: {
+              "$ref": "#/definitions/Vorhersage und Bestand für Station"
+            }
+
 
 definitions:
   Station:
@@ -71,9 +62,19 @@ definitions:
     properties:
       name:
         type: string
-      latitude:
-        type: number
-      longitude:
-        type: number
+  Bestand an Station:
+    type: object
+    properties:
+      name:
+        type: string
       bikes:
+        type: integer
+  Vorhersage und Bestand für Station:
+    type: object
+    properties:
+      name:
+        type: string
+      bikes:
+        type: integer
+      vorhersage:
         type: integer
