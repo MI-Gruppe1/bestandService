@@ -23,6 +23,29 @@ namespace BestandService.Controllers
         [HttpPost]
         public string GetAll()
         {
+            var receivedInfos = "";
+
+            if (Development)
+            {
+                // if Development read information from file
+                receivedInfos = ReadStadtRadResponseFromFile();
+            }
+            else
+            {
+                receivedInfos = DownloadStadtRadInformation();
+                if (receivedInfos == null)
+                {
+                    throw new HttpRequestException("Stadtrad API not reachable");
+                }
+            }
+
+            var stadtradParser = new StadtradParser();
+            var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
+            if (stationInfo != null)
+                return JsonConvert.SerializeObject(stationInfo);
+            else
+                return null;
+
             var reqBody = new StreamReader(Request.Body).ReadToEnd();
             var stations = JArray.Parse(reqBody);
             foreach (var station in stations)

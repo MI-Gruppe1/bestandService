@@ -50,115 +50,63 @@ namespace BestandService.Controllers
             JToken stadtRadInformation = new JArray();
             JToken radDBInformation = new JArray();
 
+            string stadtRadInfo = "";
+            var radDbInfo = "";
+
             if (Development)
             {
                 // if Development read information from file
-                var responseFromFile = ReadStadtRadResponseFromFile();
-                stadtRadInformation = JObject.Parse(responseFromFile);
+                stadtRadInfo = ReadStadtRadResponseFromFile();
 
-                var stationsFromFile = ReadStationsFromFile();
-                radDBInformation = JArray.Parse(stationsFromFile);
+                radDbInfo = ReadStationsFromFile();
             }
             else
             {
-                var downloadedStadtRadInfos = DownloadStadtRadInformation();
-                if (downloadedStadtRadInfos == null)
+                stadtRadInfo = DownloadStadtRadInformation();
+                if (stadtRadInfo == null)
                 {
                     throw new HttpRequestException("Stadtrad API not reachable");
                 }
-                stadtRadInformation = JObject.Parse(downloadedStadtRadInfos);
 
-
-                var downloadedStations = DownloadAllStations();
-                if (downloadedStations == null)
+                radDbInfo = DownloadAllStations();
+                if (radDbInfo == null)
                 {
-                    downloadedStations = ReadStationsFromFile();
-                }
-                radDBInformation = JArray.Parse(downloadedStations);
-            }
-
-
-            var markers = (JArray) stadtRadInformation["marker"];
-            foreach (var item in markers.Children())
-            {
-                // get properties
-                var itemProperties = item.Children<JProperty>();
-
-                var hal2OptionProp = itemProperties.FirstOrDefault(x => x.Name == "hal2option");
-                var hal2Option = hal2OptionProp.Value;
-
-                var bikeCount = hal2Option["bikelist"].Count();
-
-                var tooltipValue = (string) hal2Option["tooltip"];
-                var name = tooltipValue.Substring(1, 4);
-
-                foreach (var inf in radDBInformation)
-                {
-                    var fullName = (string) inf["name"];
-                    if (fullName.StartsWith(name))
-                    {
-                        inf["bikes"] = bikeCount;
-                    }
+                    radDbInfo = ReadStationsFromFile();
                 }
             }
-            return JsonConvert.SerializeObject(radDBInformation);
+
+            var stadtradParser = new StadtradParser();
+            var allStations = stadtradParser.GetAllStations(stadtRadInfo, radDbInfo);
+            return JsonConvert.SerializeObject(allStations);
+
         }
 
 
         [HttpGet("{*stationName}", Name = "GetStation")]
         public string GetStation(string stationName)
         {
-            JToken stadtRadInformation = new JArray();
-            JToken radDBInformation = new JArray();
+            var receivedInfos = "";
 
             if (Development)
             {
                 // if Development read information from file
-                var responseFromFile = ReadStadtRadResponseFromFile();
-                stadtRadInformation = JObject.Parse(responseFromFile);
+                receivedInfos = ReadStadtRadResponseFromFile();
             }
             else
             {
-                var downloadedStadtRadInfos = DownloadStadtRadInformation();
-                if (downloadedStadtRadInfos == null)
+                receivedInfos = DownloadStadtRadInformation();
+                if (receivedInfos == null)
                 {
                     throw new HttpRequestException("Stadtrad API not reachable");
                 }
-                stadtRadInformation = JObject.Parse(downloadedStadtRadInfos);
             }
 
-
-            var markers = (JArray) stadtRadInformation["marker"];
-            JObject resp = new JObject();
-            foreach (var item in markers.Children())
-            {
-                // get properties
-                var itemProperties = item.Children<JProperty>();
-
-                var hal2OptionProp = itemProperties.FirstOrDefault(x => x.Name == "hal2option");
-                var hal2Option = hal2OptionProp.Value;
-
-                var tooltipValue = (string) hal2Option["tooltip"];
-                var name = tooltipValue.Substring(1, 4);
-
-                var requestedName = stationName.Substring(0, 4);
-
-                if (name == requestedName)
-                {
-                    var bikeCount = hal2Option["bikelist"].Count();
-
-
-                    resp["name"] = stationName;
-                    var latitudeProp = itemProperties.FirstOrDefault(x => x.Name == "lat");
-                    resp["latitude"] = latitudeProp.Value;
-                    var longitudeProp = itemProperties.FirstOrDefault(x => x.Name == "lng");
-                    resp["longitude"] = latitudeProp.Value;
-                    resp["bikes"] = bikeCount;
-
-                    return JsonConvert.SerializeObject(resp);
-                }
-            }
-            return null;
+            var stadtradParser = new StadtradParser();
+            var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
+            if (stationInfo != null)
+                return JsonConvert.SerializeObject(stationInfo);
+            else
+                return null;
         }
 
         #region "private methods"
