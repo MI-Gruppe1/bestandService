@@ -34,7 +34,7 @@ paths:
               "$ref": "#/definitions/Bestand an Station"
             }
   /bestandUndVorhersage:
-    get:
+    post:
       description: Gibt Bestand und Vorhersage fuer die angegebenen Stationen an
       parameters:
         - name: stations

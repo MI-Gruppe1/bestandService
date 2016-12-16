@@ -13,12 +13,12 @@ namespace BestandService.Controllers
     [Route("[controller]")]
     public class BestandController : Controller
     {
-        //TODO durch port 4567 ersetzen
-        private const string AllStations = "http://localhost:4567/allStations";
+        //TODO durch port 6000 ersetzen
+        private const string AllStations = "http://localhost:6000/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
 
         // in development mode the service is being run with mock data
-        private const bool Development = false;
+        private const bool Development = true;
 
         // list of the known stations
         private JArray _knownStations;
