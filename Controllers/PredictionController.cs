@@ -14,25 +14,23 @@ namespace BestandService.Controllers
     [Route("/bestandUndVorhersage")]
     public class PredictionController : Controller
     {
-        private const string AllStations = "http://localhost:3000";
-        private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
-
         // in development mode the service is being run with mock data
         private const bool Development = true;
 
         [HttpPost]
         public string GetAll()
         {
+            RadInfoDownloader radInfoDownloader = new RadInfoDownloader();
             var receivedInfos = "";
 
             if (Development)
             {
                 // if Development read information from file
-                receivedInfos = ReadStadtRadResponseFromFile();
+                receivedInfos = radInfoDownloader.ReadStadtRadResponseFromFile();
             }
             else
             {
-                receivedInfos = DownloadStadtRadInformation();
+                receivedInfos = radInfoDownloader.DownloadStadtRadInformation();
                 if (receivedInfos == null)
                 {
                     throw new HttpRequestException("Stadtrad API not reachable");
@@ -40,17 +38,19 @@ namespace BestandService.Controllers
             }
 
             var stadtradParser = new StadtradParser();
-            var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
-            if (stationInfo != null)
-                return JsonConvert.SerializeObject(stationInfo);
-            else
-                return null;
 
             var reqBody = new StreamReader(Request.Body).ReadToEnd();
             var stations = JArray.Parse(reqBody);
             foreach (var station in stations)
             {
                 var stationName = (string) station.SelectToken("name");
+
+                var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
+                if (stationInfo != null)
+                    Console.WriteLine(stationInfo);
+                else
+                    return null;
+
                 Console.WriteLine(stationName);
             }
             return (string)stations.SelectToken("[0].name");
