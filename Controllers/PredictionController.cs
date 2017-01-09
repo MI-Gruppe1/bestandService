@@ -16,11 +16,13 @@ namespace BestandService.Controllers
     {
         // in development mode the service is being run with mock data
         private const bool Development = true;
+        private const string dummyPrediction = "http://localhost:5000/prediction";
+        private const string prediction = "http://localhost:3000/prediction";
 
         [HttpPost]
         public string GetAll()
         {
-            RadInfoDownloader radInfoDownloader = new RadInfoDownloader();
+            var radInfoDownloader = new RadInfoDownloader();
             var receivedInfos = "";
 
             if (Development)
@@ -41,19 +43,44 @@ namespace BestandService.Controllers
 
             var reqBody = new StreamReader(Request.Body).ReadToEnd();
             var stations = JArray.Parse(reqBody);
+            var collectedInformation = "";
+
             foreach (var station in stations)
             {
                 var stationName = (string) station.SelectToken("name");
 
                 var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
                 if (stationInfo != null)
-                    Console.WriteLine(stationInfo);
-                else
-                    return null;
+                {
+                    var response = new HttpResponseMessage();
+                    using (var client = new HttpClient())
+                    {
+                        if (Development)
+                        {
+                            response = client.GetAsync(dummyPrediction).Result;
+                        }
+                        else
+                        {
+                            response = client.GetAsync(prediction).Result;
+                        }
 
-                Console.WriteLine(stationName);
+                        if (response.IsSuccessStatusCode)
+                        {
+                            stationInfo.Add("prediction",response.Content.ReadAsStringAsync().Result);
+                        }
+                    }
+
+                    if (collectedInformation != "")
+                        collectedInformation += "," + stationInfo;
+                    else
+                        collectedInformation += stationInfo;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            return (string)stations.SelectToken("[0].name");
+            return collectedInformation;
         }
     }
 }

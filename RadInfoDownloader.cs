@@ -5,7 +5,6 @@ namespace BestandService
 {
     public class RadInfoDownloader
     {
-        //TODO durch port 6000 ersetzen
         private const string AllStations = "http://localhost:6000/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
 

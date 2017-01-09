@@ -15,7 +15,7 @@ namespace BestandService.Controllers
     {
 
         // in development mode the service is being run with mock data
-        private const bool Development = true;
+        private const bool Development = false;
 
         // list of the known stations
         private JArray _knownStations;
@@ -24,23 +24,30 @@ namespace BestandService.Controllers
         {
             RadInfoDownloader radInfoDownloader = new RadInfoDownloader();
 
-            if (Development)
-            {
-                var stationsFromFile = radInfoDownloader.ReadStationsFromFile();
-                _knownStations = JArray.Parse(stationsFromFile);
-            }
-            else
-            {
-                // try to reach the radDB Service and download a list of all stations
-                var downloadResponse = radInfoDownloader.DownloadAllStations();
-                while (downloadResponse == null)
-                {
-                    Console.WriteLine("sleeping");
-                    System.Threading.Thread.Sleep(1000);
-                    downloadResponse = radInfoDownloader.DownloadAllStations();
-                }
-                _knownStations = JArray.Parse(downloadResponse);
-            }
+    ///////////////
+    //Quickfix
+    ////////////////
+    
+            var stationsFromFile = radInfoDownloader.ReadStationsFromFile();
+            _knownStations = JArray.Parse(stationsFromFile);
+
+//            if (Development)
+//            {
+//                var stationsFromFile = radInfoDownloader.ReadStationsFromFile();
+//                _knownStations = JArray.Parse(stationsFromFile);
+//            }
+//            else
+//            {
+//                // try to reach the radDB Service and download a list of all stations
+//                var downloadResponse = radInfoDownloader.DownloadAllStations();
+//                while (downloadResponse == null)
+//                {
+//                    Console.WriteLine("sleeping");
+//                    System.Threading.Thread.Sleep(1000);
+//                    downloadResponse = radInfoDownloader.DownloadAllStations();
+//                }
+//                _knownStations = JArray.Parse(downloadResponse);
+//            }
         }
 
         /// <summary>
@@ -70,7 +77,12 @@ namespace BestandService.Controllers
                     throw new HttpRequestException("Stadtrad API not reachable");
                 }
 
-                radDbInfo = radInfoDownloader.DownloadAllStations();
+        ///////////////
+        //Quickfix
+        ////////////////
+
+                radDbInfo = radInfoDownloader.ReadStationsFromFile();
+                //radDbInfo = radInfoDownloader.DownloadAllStations();
                 if (radDbInfo == null)
                 {
                     radDbInfo = radInfoDownloader.ReadStationsFromFile();
@@ -80,7 +92,6 @@ namespace BestandService.Controllers
             var stadtradParser = new StadtradParser();
             var allStations = stadtradParser.GetAllStations(stadtRadInfo, radDbInfo);
             return JsonConvert.SerializeObject(allStations);
-
         }
 
         /// <summary>
