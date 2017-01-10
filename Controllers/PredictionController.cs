@@ -67,9 +67,10 @@ namespace BestandService.Controllers
                         }
                         else
                         {
-                            var requestedStation = prediction + "?name=" + stationName;
+                            var encoding = System.Net.WebUtility.UrlEncode(stationName);
+                            var requestedStation = prediction + "?name=" + encoding;
                             Console.WriteLine("Requested Prediction ULR: " + requestedStation);
-                            response = client.GetAsync(prediction).Result;
+                            response = client.GetAsync(requestedStation).Result;
                         }
 
                         if (response.IsSuccessStatusCode)
