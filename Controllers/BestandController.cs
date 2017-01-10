@@ -27,7 +27,7 @@ namespace BestandService.Controllers
     ///////////////
     //Quickfix
     ////////////////
-    
+
             var stationsFromFile = radInfoDownloader.ReadStationsFromFile();
             _knownStations = JArray.Parse(stationsFromFile);
 

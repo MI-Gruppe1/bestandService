@@ -76,5 +76,7 @@ definitions:
         type: string
       bikes:
         type: integer
-      vorhersage:
+      prediction:
         type: integer
+      history:
+        type: array
