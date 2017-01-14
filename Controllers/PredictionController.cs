@@ -18,7 +18,7 @@ namespace BestandService.Controllers
         // in development mode the service is being run with mock data
         private const bool Development = false;
         private const string dummyPrediction = "http://predictionService/prediction";
-        private string prediction = "predictionservice:3000/predictionService";
+        private string prediction = "http://predictionservice:3000/predictionService";
 
         [HttpPost]
         public string GetAll()
@@ -57,10 +57,10 @@ namespace BestandService.Controllers
                 var stationInfo = stadtradParser.GetInfoForOneStation(receivedInfos, stationName);
                 if (stationInfo != null)
                 {
-                    Console.WriteLine("Prediction Controller: using fake prediction to simulate prediction service");
                     const bool dummyPredictionTest = false;
                     if (dummyPredictionTest)
                     {
+                        Console.WriteLine("Prediction Controller: using fake prediction to simulate prediction service");
                         var rand = new Random();
                         var pred = rand.Next(-3, 3);
                         var current = (int) stationInfo.SelectToken("bikes");
