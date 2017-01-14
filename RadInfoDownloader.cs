@@ -5,7 +5,7 @@ namespace BestandService
 {
     public class RadInfoDownloader
     {
-        private const string AllStations = "http://localhost:6000/allStations";
+        private const string AllStations = "http://stadtraddbservice:6000/allStations";
         private const string StadtRadUrl = "http://stadtrad.hamburg.de/kundenbuchung/hal2ajax_process.php";
 
         public string DownloadStadtRadInformation()

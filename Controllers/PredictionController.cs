@@ -17,8 +17,8 @@ namespace BestandService.Controllers
     {
         // in development mode the service is being run with mock data
         private const bool Development = false;
-        private const string dummyPrediction = "http://localhost:5000/prediction";
-        private string prediction = "http://localhost:3000/predictionService";
+        private const string dummyPrediction = "http://predictionService/prediction";
+        private string prediction = "predictionservice:3000/predictionService";
 
         [HttpPost]
         public string GetAll()
